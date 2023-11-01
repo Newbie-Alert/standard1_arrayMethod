@@ -110,18 +110,30 @@ function App() {
   };
 
   const doFind = () => {
-    setResult(array.find((el) => el === query));
-    setQuery("");
+    if (query.length === 0) {
+      alert("찾으시려는 값을 입력하세요");
+    } else {
+      setResult(array.find((el) => el === query));
+      setQuery("");
+    }
   };
 
   const doSome = () => {
-    setResult(String(array.some((el) => el !== query))); // 요소 중 일부가 조건을 만족하면 true
-    setQuery("");
+    if (query.length === 0) {
+      alert("찾으시려는 값을 입력하세요");
+    } else {
+      setResult(String(array.some((el) => el !== query))); // 요소 중 하나라도 조건을 만족하면 true
+      setQuery("");
+    }
   };
 
   const doEvery = () => {
-    setResult(String(array.every((el) => el.length > 3))); // 요소들이 조건을 모두 만족하면 true 하나라도 만족하지 않으면 false
-    setQuery("");
+    if (query.length === 0) {
+      alert("찾으시려는 값을 입력하세요");
+    } else {
+      setResult(String(array.every((el) => el.length > 3))); // 요소들이 조건을 모두 만족하면 true 하나라도 만족하지 않으면 false
+      setQuery("");
+    }
   };
 
   const doSort = () => {
@@ -130,7 +142,7 @@ function App() {
   };
 
   const doJoin = () => {
-    setResult(array.join(" | ")); // 모든 요소가 구분자로 구별되어 문자열로 반환
+    setResult(array.join(" | ")); // 모든 요소가 구분자(join의 첫 인자)로 구별되어 문자열로 반환
     setQuery("");
   };
 
