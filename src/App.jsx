@@ -57,11 +57,11 @@ function App() {
   };
 
   const doSlice = () => {
-    setResult(array.slice(1, 4).join(", ")); // 시작 인덱스부터 몇 번째 인덱스까지 뽑아낼 것인가
+    setResult(array.slice(1, 4).join(", ")); // 시작 인덱스부터 몇 번째 인덱스까지 뽑아낼 것인가, 원본 데이터를 복사하여 추출해서 원본 데이터가 유지 됨.
   };
 
   const doSplice = () => {
-    setResult(array.splice(2, 2).join(", ")); // 시작 인덱스부터 몇 개를 뽑아낼 것인가
+    setResult(array.splice(2, 2).join(", ")); // 시작 인덱스부터 몇 개를 뽑아낼 것인가, 원본 데이터에서 직접 추출해내서 원본 데이터가 변경 됨.
   };
 
   const findIndexOf = () => {
@@ -79,7 +79,7 @@ function App() {
   };
 
   const doJoin = () => {
-    setResult(array.join(" | ")); // 문자열 반환
+    setResult(array.join(" | ")); // 모든 요소가 구분자로 구별되어 문자열로 반환
   };
 
   return (
