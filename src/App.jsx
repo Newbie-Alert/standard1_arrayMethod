@@ -87,7 +87,7 @@ function App() {
   };
 
   const doSplice = () => {
-    setResult(array.splice(2, 2).join(", ")); // 시작 인덱스부터 몇 개를 뽑아낼 것인가, 원본 데이터에서 직접 추출해내서 원본 데이터가 변경 됨.
+    setResult(array.splice(2, 2, 'kiwi', 'lime').join(", ")); // 시작 인덱스부터 몇 개를 뽑아낼 것인가, 원본 데이터에서 직접 추출해내서 원본 데이터가 변경 됨.
     setQuery("");
   };
 
@@ -113,7 +113,7 @@ function App() {
     if (query.length === 0) {
       alert("찾으시려는 값을 입력하세요");
     } else {
-      setResult(array.find((el) => el === query));
+      setResult(array.find((el) => el === query) || 'Not Found');
       setQuery("");
     }
   };
@@ -122,7 +122,7 @@ function App() {
     if (query.length === 0) {
       alert("찾으시려는 값을 입력하세요");
     } else {
-      setResult(String(array.some((el) => el !== query))); // 요소 중 하나라도 조건을 만족하면 true
+      setResult(String(array.some((el) => el.includes(query)))); // 요소 중 하나라도 조건을 만족하면 true
       setQuery("");
     }
   };
@@ -131,7 +131,7 @@ function App() {
     if (query.length === 0) {
       alert("찾으시려는 값을 입력하세요");
     } else {
-      setResult(String(array.every((el) => el.length > 3))); // 요소들이 조건을 모두 만족하면 true 하나라도 만족하지 않으면 false
+      setResult(String(array.every((el) => el.length > 2))); // 요소들이 조건을 모두 만족하면 true 하나라도 만족하지 않으면 false
       setQuery("");
     }
   };
@@ -142,7 +142,7 @@ function App() {
   };
 
   const doJoin = () => {
-    setResult(array.join(" | ")); // 모든 요소가 구분자(join의 첫 인자)로 구별되어 문자열로 반환
+    setResult(array.join(", ")); // 모든 요소가 구분자(join의 첫 인자)로 구별되어 문자열로 반환
     setQuery("");
   };
 
